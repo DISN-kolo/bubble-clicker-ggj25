@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var rng = RandomNumberGenerator.new()
 var r : float
@@ -8,7 +8,6 @@ var i : int = 0
 	load("res://resources/BubbleMed.png"),
 	load("res://resources/BubbleBig.png")]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	r = rng.randf_range(2.0, 3.0)
 	$Sprite2D.texture = texture_pool[i]
@@ -16,16 +15,14 @@ func _ready():
 	$Timer.start()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
+	move_and_slide()
 	pass
 
-
 func _on_timer_timeout():
-	i += 1
-	if (i >= 3):
+	if (i >= 2):
 		return
+	i += 1
 	r = rng.randf_range(2.0, 3.0)
 	$Sprite2D.texture = texture_pool[i]
 	$Timer.wait_time = r

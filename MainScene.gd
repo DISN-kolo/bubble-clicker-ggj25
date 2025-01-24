@@ -26,3 +26,6 @@ func _on_killzone_tio_left_body_entered(body):
 
 func _on_killzone_tio_right_body_entered(body):
 	body.queue_free()
+
+func _on_killzone_bubble_top_body_entered(body):
+	body.queue_free()
