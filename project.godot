@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Bubble-clicker-ggj 25"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://main scene/MainScene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://events.gd"
+Events="*res://main scene/events.gd"
 
 [display]
 

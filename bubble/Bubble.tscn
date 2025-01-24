@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfwdt2usjo7w7"]
 
-[ext_resource type="Script" path="res://Bubble.gd" id="1_46c87"]
+[ext_resource type="Script" path="res://bubble/Bubble.gd" id="1_46c87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnnsj"]
 

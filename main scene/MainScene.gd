@@ -1,9 +1,9 @@
 extends Node2D
 var rng = RandomNumberGenerator.new()
 var r : float
-@onready var tio = preload("res://tio.tscn")
+@onready var tio = preload("res://tio/tio.tscn")
 var instance_of_tio
-@onready var shop = preload("res://fun_shop.tscn")
+@onready var shop = preload("res://shop/fun_shop.tscn")
 var instance_of_shop
 var tio_direction : int
 # Called when the node enters the scene tree for the first time.

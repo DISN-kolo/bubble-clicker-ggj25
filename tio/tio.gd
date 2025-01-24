@@ -8,7 +8,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var sprite_flip : bool
 
-@onready var bub = load("res://Bubble.tscn")
+@onready var bub = load("res://bubble/Bubble.tscn")
 var bub_instance
 @onready var bubble_timer = $BubbleTimer
 @onready var shop_timer = $ShopTimer

@@ -10,7 +10,7 @@ var dying : bool = false
 	load("res://resources/BubbleMed.png"),
 	load("res://resources/BubbleBig.png")]
 
-@onready var explosion = preload("res://explosion.tscn")
+@onready var explosion = preload("res://bubble/explosion.tscn")
 var explosion_instance
 
 func _ready():
