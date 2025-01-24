@@ -1,12 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfwdt2usjo7w7"]
+[gd_scene load_steps=4 format=3 uid="uid://dfwdt2usjo7w7"]
 
 [ext_resource type="Script" path="res://Bubble.gd" id="1_46c87"]
 
-[node name="Bubble" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnnsj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2vpg"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_46c87")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cnnsj")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n2vpg")
+one_way_collision = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

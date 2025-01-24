@@ -7,14 +7,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f88cq"]
 size = Vector2(82, 313)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so2dy"]
+size = Vector2(526, 48)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uu0e3")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -5
 texture = ExtResource("1_37jlj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -22,14 +26,22 @@ autostart = true
 [node name="killzoneTioLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzoneTioLeft"]
-position = Vector2(-307, 2)
+position = Vector2(-305, 1)
 shape = SubResource("RectangleShape2D_f88cq")
 
 [node name="killzoneTioRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzoneTioRight"]
-position = Vector2(304, 2)
+position = Vector2(305, 0)
 shape = SubResource("RectangleShape2D_f88cq")
+
+[node name="killzoneBubbleTop" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzoneBubbleTop"]
+position = Vector2(0, -180)
+shape = SubResource("RectangleShape2D_so2dy")
 
 [node name="BubblesCount" parent="." instance=ExtResource("3_n88jn")]
 anchors_preset = 5
@@ -45,3 +57,4 @@ size_flags_vertical = 4
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzoneTioLeft" to="." method="_on_killzone_tio_left_body_entered"]
 [connection signal="body_entered" from="killzoneTioRight" to="." method="_on_killzone_tio_right_body_entered"]
+[connection signal="body_entered" from="killzoneBubbleTop" to="." method="_on_killzone_bubble_top_body_entered"]
