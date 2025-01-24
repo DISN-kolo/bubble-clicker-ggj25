@@ -40,7 +40,13 @@ one_way_collision = true
 sprite_frames = SubResource("SpriteFrames_ibsxh")
 autoplay = "default"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="BubbleTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="ShopTimer" type="Timer" parent="."]
+
+[node name="AuxShopTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BubbleTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShopTimer" to="." method="_on_shop_timer_timeout"]
+[connection signal="timeout" from="AuxShopTimer" to="." method="_on_aux_shop_timer_timeout"]
