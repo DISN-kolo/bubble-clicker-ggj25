@@ -84,7 +84,6 @@ func subtract(num):
 			borrow = 0;
  
 		result.append(arrayBubbles(str(diff))[0]);
- 
 	bubbles_value = result;
 
 func addBubbles(num: String):
@@ -94,4 +93,5 @@ func subtractBubbles(num: String):
 	subtract(arrayBubbles(num));
 
 func _on_timer_timeout():
-	add(arrayBubbles(passive));
+	pass;
+	#add(arrayBubbles(passive));

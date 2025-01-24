@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkqv4ff16jo6u"]
+[gd_scene load_steps=6 format=3 uid="uid://bkqv4ff16jo6u"]
 
 [ext_resource type="Texture2D" uid="uid://byfs85ws3xdmn" path="res://resources/BG.png" id="1_37jlj"]
 [ext_resource type="Script" path="res://MainScene.gd" id="1_uu0e3"]
@@ -43,7 +43,7 @@ collision_mask = 3
 position = Vector2(0, -180)
 shape = SubResource("RectangleShape2D_so2dy")
 
-[node name="BubblesCount" parent="." instance=ExtResource("3_n88jn")]
+[node name="BubblesCount" parent="." groups=["BubblesCount"] instance=ExtResource("3_n88jn")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
