@@ -23,9 +23,9 @@ func _ready():
 	#instance_of_shop = shop.instantiate()
 	#instance_of_shop.global_position = Vector2(rng.randi_range(-100, 100), rng.randi_range(110, 120))
 	#add_child(instance_of_shop)
-	instance_of_factory = factory.instantiate()
-	instance_of_factory.global_position = Vector2(-100, 50)
-	add_child(instance_of_factory)
+	#instance_of_factory = factory.instantiate()
+	#instance_of_factory.global_position = Vector2(-100, 50)
+	#add_child(instance_of_factory)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -61,6 +61,10 @@ func _on_upgrade_purchased(upgrade_name : String):
 	print(upgrade_name, " purchased")
 	if upgrade_name == "Tios":
 		spawn_a_tio()
+	elif upgrade_name == "Fun shop":
+		spawn_a_shop()
+	elif upgrade_name == "Acid factory":
+		spawn_a_factory()
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1
@@ -69,3 +73,13 @@ func spawn_a_tio():
 	instance_of_tio.global_position = Vector2(-250 * tio_direction, rng.randi_range(TIO_MIN_Y, TIO_MAX_Y))
 	instance_of_tio.sprite_flip = (tio_direction == -1)
 	add_child(instance_of_tio)
+
+func spawn_a_shop():
+	instance_of_shop = shop.instantiate()
+	instance_of_shop.global_position = Vector2(rng.randi_range(-100, 100), rng.randi_range(110, 120))
+	add_child(instance_of_shop)
+
+func spawn_a_factory():
+	instance_of_factory = factory.instantiate()
+	instance_of_factory.global_position = Vector2(rng.randi_range(-100, 100), 50)
+	add_child(instance_of_factory)

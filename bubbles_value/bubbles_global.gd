@@ -7,7 +7,19 @@ const upgrades = [
 	{
 		"name": "Tios",
 		"quantity": 1,
-		"img": "single_tio.png",
+		"img": "UpTio.png",
+		"price": "1",
+	},
+	{
+		"name": "Fun shop",
+		"quantity": 0,
+		"img": "UpShoppy.png",
+		"price": "1",
+	},
+	{
+		"name": "Acid factory",
+		"quantity": 0,
+		"img": "UpFactory.png",
 		"price": "1",
 	},
 ]

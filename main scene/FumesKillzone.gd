@@ -29,7 +29,6 @@ func _process(delta):
 		main_fumes_sprite.position.x = 0
 	if aux_fumes_sprite.position.x <= 0:
 		aux_fumes_sprite.position.x = 480
-	pass
 	main_fumes_sprite.self_modulate.a = opacity
 	aux_fumes_sprite.self_modulate.a = opacity
 
