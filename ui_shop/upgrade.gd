@@ -1,9 +1,9 @@
 extends HBoxContainer
 
-@export var upgrade_name: String;
-@export var upgrade_price: String;
-@export var upgrade_quantity: int;
-@export var upgrade_img: CompressedTexture2D;
+var upgrade_name: String;
+var upgrade_price: String;
+var upgrade_quantity: int;
+var upgrade_img: CompressedTexture2D;
 
 func _ready():
 	_setValues();
@@ -19,4 +19,33 @@ func _on_buy_pressed():
 		BubblesGlobal.upgrade_purchased.emit(upgrade_name);
 		BubblesGlobal.subtractBubbles(upgrade_price);
 		upgrade_quantity += 1;
+		upgrade_price = addPrice(upgrade_price);
 		_setValues();
+		
+func addPrice(num : String):
+	var numArr = BubblesGlobal.arrayBubbles(num);
+	var priceArr = BubblesGlobal.arrayBubbles(upgrade_price);
+	var result = [];
+	var carry = 0;
+ 
+	while numArr.size() > 0 or priceArr.size() > 0:
+		var sum = 0;
+ 
+		if numArr.size() > 0:
+			sum += numArr.pop_front();
+ 
+		if priceArr.size() > 0:
+			sum += priceArr.pop_front();
+ 
+		sum += carry;
+		carry = 0;
+ 
+		result.append(BubblesGlobal.arrayBubbles(str(sum))[0]);
+ 
+		if BubblesGlobal.arrayBubbles(str(sum)).size() > 1:
+			carry = BubblesGlobal.arrayBubbles(str(sum))[1];
+ 
+	if carry != 0:
+		result.append(carry);
+ 
+	return BubblesGlobal.displayBubbles(result);
