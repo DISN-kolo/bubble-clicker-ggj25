@@ -18,3 +18,5 @@ var fuming : bool = false
 var global_bubble_index : int = 0
 var global_bubble_count : int = 0
 var global_bubble_modificator : int = 1
+
+var bubble_random_death_chance : float = 0
