@@ -14,6 +14,7 @@ var dying : bool = false
 var explosion_instance
 
 func _ready():
+	Events.global_bubble_count += 1;
 	r = rng.randf_range(Events.bubble_growth_time, Events.bubble_growth_time + 2)
 	$Sprite2D.texture = texture_pool[i]
 	$Timer.wait_time = r
@@ -28,12 +29,13 @@ func _physics_process(delta):
 	pass
 	
 func die():
+	Events.global_bubble_count -= 1;
 	killable = false
 	dying = true
 	$Sprite2D.queue_free()
 	explosion_instance = explosion.instantiate()
 	add_child(explosion_instance)
-	BubblesGlobal.addBubbles(str(i + 1));
+	BubblesGlobal.addBubbles(str((i + 1) * Events.global_bubble_modificator));
 
 func _on_timer_timeout():
 	if !dying:
