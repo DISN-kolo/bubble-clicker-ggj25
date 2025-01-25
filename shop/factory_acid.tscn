@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4b2kbn25s2nk"]
+
+[ext_resource type="Texture2D" uid="uid://bmo5henc82yrl" path="res://resources/FactoryAcid.png" id="1_ako7e"]
+[ext_resource type="Script" path="res://shop/factory_acid.gd" id="1_smpeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awv5a"]
+size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0pww"]
+font_size = 7
+
+[node name="FactoryAcid" type="Node2D"]
+script = ExtResource("1_smpeu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ako7e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_awv5a")
+
+[node name="FumingTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 21.0
+offset_bottom = -4.0
+label_settings = SubResource("LabelSettings_n0pww")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="FumingTimer" to="." method="_on_fuming_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -44,8 +44,10 @@ autoplay = "default"
 autostart = true
 
 [node name="ShopTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AuxShopTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="BubbleTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ShopTimer" to="." method="_on_shop_timer_timeout"]
