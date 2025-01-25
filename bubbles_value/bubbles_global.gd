@@ -3,6 +3,8 @@ extends Node
 signal bubbles_updated;
 signal upgrade_purchased;
 
+const NOTATION : Array = ['','K','M','B','T','Qa','Qi','Sx','Sp','Oc']
+
 const upgrades = [
 	{
 		"name": "Tios",
@@ -24,6 +26,13 @@ const upgrades = [
 		"price": "",
 		"prices": ["1", "1000", "10000", "100000"],
 	},
+	{
+		"name": "Bubble multiplier",
+		"quantity": 1,
+		"img": "UpFactory.png",
+		"price": "",
+		"prices": ["1", "10", "50", "100"],
+	},
 ]
 
 var bubbles_value: Array = []:
@@ -33,8 +42,10 @@ var bubbles_value: Array = []:
 
 var passive: String = "0";
 
+var multiplier: int = 1;
+
 func _ready():
-	bubbles_value = arrayBubbles("10000000000");
+	bubbles_value = arrayBubbles("0");
 
 func arrayBubbles(num: String):
 	var arr = [];

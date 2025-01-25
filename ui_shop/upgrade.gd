@@ -17,7 +17,14 @@ func _setValues():
 		$Value/Img.visible = false;
 		$Value/Buy.visible = false;
 	else:
-		$Value/Price.text = upgrade_price;
+		var values = BubblesGlobal.arrayBubbles(upgrade_price);
+		var size = values.size() - 1;
+		var price: String;
+		if (size > 0 && values[size - 1] != 0):
+			price = str(values[size]) + "." + str(values[size - 1]).pad_zeros(3) + BubblesGlobal.NOTATION[size];	
+		else:
+			price = str(values[size]) + BubblesGlobal.NOTATION[size];
+		$Value/Price.text = price;
 
 func _on_buy_pressed():
 	if (BubblesGlobal.compare(upgrade_price)):
