@@ -17,21 +17,21 @@ const upgrades = [
 		"quantity": 0,
 		"img": "UpShoppy.png",
 		"price": "",
-		"prices": ["1", "50", "500", "50000", "500000", "50000000"],
+		"prices": ["50", "500", "50000", "500000", "50000000", "5000000000"],
 	},
 	{
 		"name": "Acid factory",
 		"quantity": 0,
 		"img": "UpFactory.png",
 		"price": "",
-		"prices": ["1", "1000", "10000", "100000"],
+		"prices": ["1000", "10000", "100000", "10000000"],
 	},
 	{
 		"name": "Bubble multiplier",
 		"quantity": 1,
 		"img": "UpFactory.png",
 		"price": "",
-		"prices": ["1", "10", "50", "100"],
+		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 ]
 
