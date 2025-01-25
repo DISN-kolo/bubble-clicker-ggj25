@@ -27,12 +27,14 @@ func _setValues():
 		$Value/Price.text = price;
 
 func _on_buy_pressed():
+	var old_price: String;
 	if (BubblesGlobal.compare(upgrade_price)):
+		old_price = upgrade_price;
 		BubblesGlobal.upgrade_purchased.emit(upgrade_name);
-		BubblesGlobal.subtractBubbles(upgrade_price);
 		upgrade_quantity += 1;
 		upgrade_price = upgradePrice();
 		_setValues();
+		BubblesGlobal.subtractBubbles(old_price);
 
 func upgradePrice():
 	var upgrade = BubblesGlobal.upgrades.filter(func (upgrade): return upgrade.name == upgrade_name);

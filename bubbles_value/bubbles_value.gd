@@ -14,7 +14,3 @@ func on_bubbles_update():
 	else:
 		bubbles = "0";
 	$Label.text = bubbles;
-	
-func _on_timer_timeout():
-	if BubblesGlobal.passive != "0":
-		BubblesGlobal.addBubbles(BubblesGlobal.passive);

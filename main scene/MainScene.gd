@@ -91,14 +91,13 @@ func _on_killzone_bubble_top_body_entered(body):
 	body.queue_free()
 
 func _on_upgrade_purchased(upgrade_name : String):
-	print(upgrade_name, " purchased")
 	if upgrade_name == "Tios":
 		spawn_a_tio()
 	elif upgrade_name == "Fun shop":
 		spawn_a_shop()
 	elif upgrade_name == "Acid factory":
 		spawn_a_factory()
-	elif upgrade_name == "Bubble multiplier":
+	elif upgrade_name == "Bubble x2":
 		upgrade_multiplier()
 	elif upgrade_name == "Random pops":
 		Events.bubble_random_death_chance += Events.bubble_random_death_chance + 0.5

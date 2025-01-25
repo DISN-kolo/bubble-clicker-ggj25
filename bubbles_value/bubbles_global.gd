@@ -11,7 +11,6 @@ const upgrades = [
 		"quantity": 1,
 		"img": "UpTio.png",
 		"price": "1",
-		"actualPrice": "1",
 	},
 	{
 		"name": "Fun shop",
@@ -19,7 +18,6 @@ const upgrades = [
 		"img": "UpShoppy.png",
 		"price": "",
 		"prices": ["50", "500", "50000", "500000", "50000000", "5000000000"],
-		"actualPrice": "50",
 	},
 	{
 		"name": "Acid factory",
@@ -27,7 +25,6 @@ const upgrades = [
 		"img": "UpFactory.png",
 		"price": "",
 		"prices": ["1000", "10000", "100000", "10000000"],
-		"actualPrice": "1000",
 	},
 	{
 		"name": "Bubble x2",
@@ -35,7 +32,6 @@ const upgrades = [
 		"img": "UpPtsPerBubble.png",
 		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
-		"actualPrice": "10",
 	},
 	{
 		"name": "Random pops",
@@ -49,9 +45,10 @@ const upgrades = [
 var bubbles_value: Array = []:
 	set(value):
 		bubbles_value = value;
+		print(value);
 		bubbles_updated.emit();
 
-var passive: String = "0";
+var passive: String = "100";
 
 var multiplier: int = 1;
 
