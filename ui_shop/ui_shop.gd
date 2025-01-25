@@ -28,7 +28,7 @@ func _on_close_button_button_up():
 
 func _on_bubbles_updated():
 	for upgrade in $Upgrades/Wrapper.get_children():
-		if (BubblesGlobal.compare(upgrade.upgrade_price)):
+		if (upgrade.upgrade_price != "-1" && BubblesGlobal.compare(upgrade.upgrade_price)):
 			$ShoppingCart.texture_normal = shopping_active;
 			return;
 	$ShoppingCart.texture_normal = shopping;
