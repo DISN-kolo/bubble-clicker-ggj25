@@ -28,7 +28,7 @@ func _physics_process(delta):
 			$Sprite2D.queue_free()
 			explosion_instance = explosion.instantiate()
 			add_child(explosion_instance)
-			get_tree().get_nodes_in_group("BubblesCount")[0].addBubbles(str(i + 1));
+			BubblesGlobal.addBubbles(str(i + 1));
 	move_and_slide()
 	pass
 
