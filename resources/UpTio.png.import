@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5vedct1r3m5y"
-path="res://.godot/imported/UpTio.png-e8854d7f4053db22dde1de259f391eef.ctex"
+uid="uid://boarn60ck7vla"
+path="res://.godot/imported/UpTio.png-d97c235ff2400ce4a49be9c051517518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/UpTio.png"
-dest_files=["res://.godot/imported/UpTio.png-e8854d7f4053db22dde1de259f391eef.ctex"]
+source_file="res://bubble/UpTio.png"
+dest_files=["res://.godot/imported/UpTio.png-d97c235ff2400ce4a49be9c051517518.ctex"]
 
 [params]
 

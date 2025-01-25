@@ -9,6 +9,8 @@ var us_fuming : bool = false
 @onready var cooldown_timer = $CooldownTimer
 @onready var cooldown_label = $Label
 
+var rng = RandomNumberGenerator.new()
+@onready var audio_player = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +27,8 @@ func _process(delta):
 			Events.fuming = true
 			us_fuming = true
 			launchable = false
+			audio_player.pitch_scale = rng.randf_range(0.98, 1.02)
+			audio_player.play()
 	if (cooldown):
 		cooldown_label.visible = true
 		cooldown_label.text = "Cooldown... " + str(int(cooldown_timer.time_left))

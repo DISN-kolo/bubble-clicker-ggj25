@@ -34,6 +34,13 @@ const upgrades = [
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 	{
+		"name": "Reduce wait",
+		"quantity": 0,
+		"img": "BubbleTimerReduce.png",
+		"price": "",
+		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+	},
+	{
 		"name": "Random pops",
 		"quantity": 0,
 		"img": "UpRandomPop.png",

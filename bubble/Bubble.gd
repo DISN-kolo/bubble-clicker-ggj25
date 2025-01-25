@@ -16,6 +16,8 @@ var explosion_instance
 @onready var b_sprite = $Sprite2D
 @onready var b_timer = $Timer
 
+@onready var audio_player = $AudioStreamPlayer2D
+
 var die_roll : float = 100
 
 func _ready():
@@ -32,6 +34,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func die():
+	audio_player.pitch_scale = rng.randf_range(0.98, 1.02)
+	audio_player.play()
 	Events.global_bubble_count -= 1;
 	killable = false
 	dying = true

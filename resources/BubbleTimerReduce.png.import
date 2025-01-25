@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bff21801ksl5p"
-path="res://.godot/imported/UpShoppy.png-8f8bc1b42ca83e60aabe2a11192b9542.ctex"
+uid="uid://bc17sxhihy5o0"
+path="res://.godot/imported/BubbleTimerReduce.png-01885b9b04e7cc91cd4d5afd4c4f1656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bubble/UpShoppy.png"
-dest_files=["res://.godot/imported/UpShoppy.png-8f8bc1b42ca83e60aabe2a11192b9542.ctex"]
+source_file="res://resources/BubbleTimerReduce.png"
+dest_files=["res://.godot/imported/BubbleTimerReduce.png-01885b9b04e7cc91cd4d5afd4c4f1656.ctex"]
 
 [params]
 
