@@ -29,7 +29,7 @@ const upgrades = [
 	{
 		"name": "Bubble x2",
 		"quantity": 1,
-		"img": "UpPtsPerBubble.png",
+		"img": "UpBubblePtsALTERNATIVE.png",
 		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
@@ -37,6 +37,13 @@ const upgrades = [
 		"name": "Random pops",
 		"quantity": 0,
 		"img": "UpRandomPop.png",
+		"price": "",
+		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+	},
+		{
+		"name": "Auto bath",
+		"quantity": 0,
+		"img": "UpBath.png",
 		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},

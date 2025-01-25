@@ -11,12 +11,15 @@ const CLOUD_SPEED : float = 5.5
 
 @onready var tio = preload("res://tio/tio.tscn")
 var instance_of_tio
+var tio_direction : int
 @onready var shop = preload("res://shop/fun_shop.tscn")
 var instance_of_shop
 @onready var factory = preload("res://shop/factory_acid.tscn")
 var instance_of_factory
-var tio_direction : int
+@onready var bath = preload("res://shop/auto_bath.tscn")
+var instance_of_bath
 
+var bath_installed : bool = false
 var factories_spawned : int = 0
 var shops_spawned : int = 0
 
@@ -101,6 +104,8 @@ func _on_upgrade_purchased(upgrade_name : String):
 		upgrade_multiplier()
 	elif upgrade_name == "Random pops":
 		Events.bubble_random_death_chance += Events.bubble_random_death_chance + 0.5
+	elif upgrade_name == "Auto bath":
+		bath_upgrade_or_install()
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1
@@ -138,7 +143,20 @@ func upgrade_multiplier():
 	if (BubblesGlobal.multiplier == 1):
 		BubblesGlobal.multiplier += 1;
 	else:
-		BubblesGlobal.multiplier **= 2;
+		BubblesGlobal.multiplier = BubblesGlobal.multiplier**1.5/2 + BubblesGlobal.multiplier;
+
+func bath_upgrade_or_install():
+	if !bath_installed:
+		instance_of_bath = bath.instantiate()
+		instance_of_bath.position.x = 200
+		instance_of_bath.position.y = 100
+		add_child(instance_of_bath)
+		bath_installed = true
+	else:
+		Events.bath_bubbles_amt *= 1.3
+		Events.bath_interval /= 2
+		if Events.bath_interval < 0.2:
+			Events.bath_interval = 0.2
 
 func _on_timer_timeout():
 	spawn_a_cloud()

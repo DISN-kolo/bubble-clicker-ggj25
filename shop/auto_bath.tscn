@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv81m5j3bgdt8"]
+
+[ext_resource type="Script" path="res://AutoBath.gd" id="1_pluxl"]
+[ext_resource type="Texture2D" uid="uid://bjpg010dlvcuv" path="res://resources/AutoBath.png" id="2_hd5hh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox3vv"]
+atlas = ExtResource("2_hd5hh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxup6"]
+atlas = ExtResource("2_hd5hh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6r06"]
+atlas = ExtResource("2_hd5hh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10kk4"]
+atlas = ExtResource("2_hd5hh")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk03k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxup6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6r06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10kk4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AutoBath" type="Node2D"]
+z_index = -1
+script = ExtResource("1_pluxl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dk03k")
+autoplay = "default"
+frame_progress = 0.97172
+
+[node name="BubbleSpawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
