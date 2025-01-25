@@ -1,8 +1,11 @@
 extends Control
 
 @onready var UPGRADE = preload("res://ui_shop/upgrade.tscn")
+@onready var shopping = preload("res://resources/shopping_cart.png");
+@onready var shopping_active = preload("res://resources/shopping_cart(1).png");
 
 func _ready():
+	BubblesGlobal.bubbles_updated.connect(_on_bubbles_updated);
 	for upgrade in BubblesGlobal.upgrades:
 		var control = UPGRADE.instantiate();
 		control.upgrade_name = upgrade.name;
@@ -22,3 +25,10 @@ func _on_shopping_cart_button_up():
 func _on_close_button_button_up():
 	$Upgrades.visible = false;
 	$ShoppingCart.visible = true;
+
+func _on_bubbles_updated():
+	for upgrade in $Upgrades/Wrapper.get_children():
+		if (BubblesGlobal.compare(upgrade.upgrade_price)):
+			$ShoppingCart.texture_normal = shopping_active;
+			return;
+	$ShoppingCart.texture_normal = shopping;
