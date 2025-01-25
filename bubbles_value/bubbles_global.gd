@@ -37,6 +37,13 @@ const upgrades = [
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 		"actualPrice": "10",
 	},
+	{
+		"name": "Random pops",
+		"quantity": 0,
+		"img": "UpRandomPop.png",
+		"price": "",
+		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+	},
 ]
 
 var bubbles_value: Array = []:

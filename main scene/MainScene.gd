@@ -100,6 +100,8 @@ func _on_upgrade_purchased(upgrade_name : String):
 		spawn_a_factory()
 	elif upgrade_name == "Bubble multiplier":
 		upgrade_multiplier()
+	elif upgrade_name == "Random pops":
+		Events.bubble_random_death_chance += Events.bubble_random_death_chance + 0.5
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1

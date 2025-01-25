@@ -13,26 +13,29 @@ var dying : bool = false
 @onready var explosion = preload("res://bubble/explosion.tscn")
 var explosion_instance
 
+@onready var b_sprite = $Sprite2D
+@onready var b_timer = $Timer
+
+var die_roll : float = 100
+
 func _ready():
 	Events.global_bubble_count += 1;
 	r = rng.randf_range(Events.bubble_growth_time, Events.bubble_growth_time + 2)
-	$Sprite2D.texture = texture_pool[i]
-	$Timer.wait_time = r
-	$Timer.start()
-	pass # Replace with function body.
+	b_sprite.texture = texture_pool[i]
+	b_timer.wait_time = r
+	b_timer.start()
 
 func _physics_process(delta):
 	if killable and !dying:
 		if Input.is_action_just_pressed("LMB"):
 			die()
 	move_and_slide()
-	pass
-	
+
 func die():
 	Events.global_bubble_count -= 1;
 	killable = false
 	dying = true
-	$Sprite2D.queue_free()
+	b_sprite.queue_free()
 	explosion_instance = explosion.instantiate()
 	add_child(explosion_instance)
 	BubblesGlobal.addBubbles(str((i + 1) * Events.global_bubble_modificator * BubblesGlobal.multiplier));
@@ -42,11 +45,15 @@ func _on_timer_timeout():
 		if (i >= 2):
 			self.queue_free()
 			return
+		die_roll = rng.randf_range(0, 100)
+		if (die_roll < Events.bubble_random_death_chance):
+			die()
+			return
 		i += 1
 		r = rng.randf_range(2.0, 3.0)
-		$Sprite2D.texture = texture_pool[i]
-		$Timer.wait_time = r
-		$Timer.start()
+		b_sprite.texture = texture_pool[i]
+		b_timer.wait_time = r
+		b_timer.start()
 
 
 func _on_area_2d_mouse_entered():
