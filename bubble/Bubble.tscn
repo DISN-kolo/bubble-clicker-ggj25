@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfwdt2usjo7w7"]
+[gd_scene load_steps=5 format=3 uid="uid://dfwdt2usjo7w7"]
 
 [ext_resource type="Script" path="res://bubble/Bubble.gd" id="1_46c87"]
+[ext_resource type="AudioStream" uid="uid://cs8cgwuha0h5v" path="res://resources/pop.wav" id="2_u764b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnnsj"]
 
@@ -24,6 +25,11 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n2vpg")
 one_way_collision = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_u764b")
+max_polyphony = 16
+bus = &"Popping"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

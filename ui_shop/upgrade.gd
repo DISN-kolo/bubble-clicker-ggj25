@@ -5,6 +5,9 @@ var upgrade_price: String;
 var upgrade_quantity: int;
 var upgrade_img: CompressedTexture2D;
 
+@onready var audio_player = $AudioStreamPlayer2D
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	_setValues();
 
@@ -35,6 +38,8 @@ func _on_buy_pressed():
 		upgrade_price = upgradePrice();
 		_setValues();
 		BubblesGlobal.subtractBubbles(old_price);
+		audio_player.pitch_scale = rng.randf_range(0.98, 1.02)
+		audio_player.play()
 
 func upgradePrice():
 	var upgrade = BubblesGlobal.upgrades.filter(func (upgrade): return upgrade.name == upgrade_name);

@@ -60,7 +60,7 @@ func _ready():
 	#add_child(instance_of_factory)
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("shiftescape"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("cheat"):
 		Events.tio_spawn_time /= 2
@@ -106,6 +106,10 @@ func _on_upgrade_purchased(upgrade_name : String):
 		Events.bubble_random_death_chance += Events.bubble_random_death_chance + 0.5
 	elif upgrade_name == "Auto bath":
 		bath_upgrade_or_install()
+	elif upgrade_name == "Reduce wait":
+		Events.tio_bubbling_time /= 1.2
+		if (Events.tio_bubbling_time <= 0.5):
+			Events.tio_bubbling_time = 0.5
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1
