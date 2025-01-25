@@ -16,8 +16,7 @@ func _setValues():
 
 func _on_buy_pressed():
 	if (BubblesGlobal.compare(upgrade_price)):
+		BubblesGlobal.upgrade_purchased.emit(upgrade_name);
 		BubblesGlobal.subtractBubbles(upgrade_price);
-		var upgrade = BubblesGlobal.upgrades.filter(func (upgrade): return upgrade.name == upgrade_name);
 		upgrade_quantity += 1;
-		upgrade[0].quantity = upgrade_quantity;
 		_setValues();
