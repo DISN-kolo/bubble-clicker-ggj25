@@ -17,7 +17,7 @@ const upgrades = [
 		"quantity": 0,
 		"img": "UpShoppy.png",
 		"price": "",
-		"prices": ["1", "50", "500", "50000"],
+		"prices": ["1", "50", "500", "50000", "500000", "50000000"],
 	},
 	{
 		"name": "Acid factory",
