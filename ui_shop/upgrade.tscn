@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsuwkxpxx6dl1"]
+[gd_scene load_steps=6 format=3 uid="uid://bsuwkxpxx6dl1"]
 
 [ext_resource type="Script" path="res://ui_shop/upgrade.gd" id="1_kpwkn"]
-[ext_resource type="Texture2D" uid="uid://c2qdxhmg27wtx" path="res://resources/BubbleBig.png" id="2_o34wk"]
+[ext_resource type="Texture2D" uid="uid://b5vedct1r3m5y" path="res://resources/UpTio.png" id="2_wh23m"]
 [ext_resource type="Texture2D" uid="uid://b77b1b5uyno7o" path="res://resources/BuyThat.png" id="3_67k4m"]
+[ext_resource type="Texture2D" uid="uid://jgqcjf5jv306" path="res://resources/BubbleMed.png" id="3_mdeyg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tcqii"]
 font_size = 8
@@ -15,36 +16,25 @@ script = ExtResource("1_kpwkn")
 
 [node name="Item" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 size_flags_vertical = 4
+
+[node name="Quantity" type="Label" parent="Item"]
+layout_mode = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_tcqii")
 
 [node name="Img" type="TextureRect" parent="Item"]
 layout_mode = 2
 size_flags_horizontal = 4
+texture = ExtResource("2_wh23m")
 
 [node name="Name" type="Label" parent="Item"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Tios
 "
 label_settings = SubResource("LabelSettings_tcqii")
-
-[node name="Price" type="HBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Num" type="Label" parent="Price"]
-layout_mode = 2
-text = "200
-"
-label_settings = SubResource("LabelSettings_tcqii")
-
-[node name="Img" type="TextureRect" parent="Price"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_o34wk")
 
 [node name="Value" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -52,11 +42,17 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 alignment = 2
 
-[node name="Quantity" type="Label" parent="Value"]
+[node name="Price" type="Label" parent="Value"]
 layout_mode = 2
-text = "1
+text = "200
 "
 label_settings = SubResource("LabelSettings_tcqii")
+
+[node name="Img" type="TextureRect" parent="Value"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_mdeyg")
 
 [node name="Buy" type="TextureButton" parent="Value"]
 layout_mode = 2

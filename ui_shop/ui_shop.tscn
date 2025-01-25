@@ -35,8 +35,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("2_kmdd4")
 
-[node name="Control" type="Control" parent="."]
-unique_name_in_owner = true
+[node name="Upgrades" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchor_left = 0.799
@@ -46,7 +45,7 @@ offset_left = -31.52
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Upgrades"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.788235, 0, 0.396078, 0.478431)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Upgrades"]
 layout_mode = 2
 offset_left = -24.0
 offset_top = 8.0
@@ -67,7 +66,7 @@ size_flags_horizontal = 0
 text = "UPGRADES SHOP"
 label_settings = SubResource("LabelSettings_5vu7l")
 
-[node name="CloseButton" type="TextureButton" parent="Control"]
+[node name="CloseButton" type="TextureButton" parent="Upgrades"]
 layout_mode = 0
 offset_left = 106.0
 offset_top = 10.0
@@ -76,7 +75,7 @@ offset_bottom = 26.0
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_c8hc0")
 
-[node name="Upgrades" type="VBoxContainer" parent="Control"]
+[node name="Wrapper" type="VBoxContainer" parent="Upgrades"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.25
@@ -91,4 +90,4 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="ShoppingCart" to="." method="_on_shopping_cart_button_up"]
-[connection signal="button_up" from="Control/CloseButton" to="." method="_on_close_button_button_up"]
+[connection signal="button_up" from="Upgrades/CloseButton" to="." method="_on_close_button_button_up"]

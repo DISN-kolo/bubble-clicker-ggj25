@@ -11,17 +11,34 @@ func _ready():
 func _setValues():
 	$Item/Img.texture = upgrade_img;
 	$Item/Name.text = upgrade_name;
-	$Price/Num.text = upgrade_price;
-	$Value/Quantity.text = str(upgrade_quantity);
+	$Item/Quantity.text = str(upgrade_quantity);
+	if (upgrade_price == "-1"):
+		$Value/Price.text = "MAX";
+		$Value/Img.visible = false;
+		$Value/Buy.visible = false;
+	else:
+		$Value/Price.text = upgrade_price;
 
 func _on_buy_pressed():
 	if (BubblesGlobal.compare(upgrade_price)):
 		BubblesGlobal.upgrade_purchased.emit(upgrade_name);
 		BubblesGlobal.subtractBubbles(upgrade_price);
 		upgrade_quantity += 1;
-		upgrade_price = addPrice(upgrade_price);
+		upgrade_price = upgradePrice();
 		_setValues();
-		
+
+func upgradePrice():
+	var upgrade = BubblesGlobal.upgrades.filter(func (upgrade): return upgrade.name == upgrade_name);
+	if (upgrade[0].price.length() > 0):
+		return addPrice(upgrade_price);
+	else:
+		var i = 0;
+		while i < upgrade[0].prices.size() && upgrade[0].prices[i] != upgrade_price:
+			i += 1;
+		if (i  < upgrade[0].prices.size() - 1):
+			return upgrade[0].prices[i + 1];
+		return "-1";
+
 func addPrice(num : String):
 	var numArr = BubblesGlobal.arrayBubbles(num);
 	var priceArr = BubblesGlobal.arrayBubbles(upgrade_price);

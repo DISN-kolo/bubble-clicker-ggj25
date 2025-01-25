@@ -14,13 +14,15 @@ const upgrades = [
 		"name": "Fun shop",
 		"quantity": 0,
 		"img": "UpShoppy.png",
-		"price": "1",
+		"price": "",
+		"prices": ["1", "50", "500", "50000"],
 	},
 	{
 		"name": "Acid factory",
 		"quantity": 0,
 		"img": "UpFactory.png",
-		"price": "1",
+		"price": "",
+		"prices": ["1", "1000", "10000", "100000"],
 	},
 ]
 
@@ -32,7 +34,7 @@ var bubbles_value: Array = []:
 var passive: String = "0";
 
 func _ready():
-	bubbles_value = arrayBubbles("0");
+	bubbles_value = arrayBubbles("10000000000");
 
 func arrayBubbles(num: String):
 	var arr = [];
@@ -91,8 +93,10 @@ func subtract(num):
 			borrow = 1;
 		else:
 			borrow = 0;
- 
+		
 		result.append(arrayBubbles(str(diff))[0]);
+	if (result.size() > 0 && result[result.size() - 1] == 0):
+		result.pop_back();
 	bubbles_value = result;
 
 func compare(num: String):
