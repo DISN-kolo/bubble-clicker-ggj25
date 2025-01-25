@@ -15,9 +15,9 @@ const TIO_MAX_Y : float = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#instance_of_shop = shop.instantiate()
-	#instance_of_shop.global_position = Vector2(rng.randi_range(-100, 100), rng.randi_range(110, 120))
-	#add_child(instance_of_shop)
+	instance_of_shop = shop.instantiate()
+	instance_of_shop.global_position = Vector2(rng.randi_range(-100, 100), rng.randi_range(110, 120))
+	add_child(instance_of_shop)
 	pass # Replace with function body.
 
 func _process(delta):
@@ -25,15 +25,17 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("cheat"):
 		Events.tio_spawn_time /= 2
-		if (Events.tio_spawn_time <= 0.01):
-			Events.tio_spawn_time = 0.01
+		if (Events.tio_spawn_time <= 0.5):
+			Events.tio_spawn_time = 0.5
 		Events.bubble_growth_time /= 2
-		if (Events.bubble_growth_time <= 0.01):
-			Events.bubble_growth_time = 0.01
-		Events.tio_shopping_time += 1
+		if (Events.bubble_growth_time <= 0.1):
+			Events.bubble_growth_time = 0.1
+		Events.tio_shopping_time += 0.5
+		if (Events.tio_shopping_time > 3):
+			Events.tio_shopping_time = 3
 		Events.tio_bubbling_time /= 2
-		if (Events.tio_bubbling_time <= 0.01):
-			Events.tio_bubbling_time = 0.01
+		if (Events.tio_bubbling_time <= 0.3):
+			Events.tio_bubbling_time = 0.3
 		Events.tio_maximum_bubbles += 1
 
 func _on_timer_timeout():
