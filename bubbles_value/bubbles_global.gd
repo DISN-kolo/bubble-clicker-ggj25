@@ -45,10 +45,9 @@ const upgrades = [
 var bubbles_value: Array = []:
 	set(value):
 		bubbles_value = value;
-		print(value);
 		bubbles_updated.emit();
 
-var passive: String = "100";
+var passive: String = "0";
 
 var multiplier: int = 1;
 
