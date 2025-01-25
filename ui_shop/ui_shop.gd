@@ -6,14 +6,19 @@ func _ready():
 	for upgrade in BubblesGlobal.upgrades:
 		var control = UPGRADE.instantiate();
 		control.upgrade_name = upgrade.name;
-		control.upgrade_price = upgrade.price;
+		if (upgrade.price.length() > 0):
+			control.upgrade_price = upgrade.price;
+		else:
+			control.upgrade_price = upgrade.prices[0];
 		control.upgrade_quantity = upgrade.quantity;
 		if (ResourceLoader.exists("res://resources/" + upgrade.img)):
 			control.upgrade_img = ResourceLoader.load("res://resources/" + upgrade.img);
-		$Control/Upgrades.add_child(control);
+		$Upgrades/Wrapper.add_child(control);
 
 func _on_shopping_cart_button_up():
-	%Control.visible = true;
+	$Upgrades.visible = true;
+	$ShoppingCart.visible = false;
 
 func _on_close_button_button_up():
-	%Control.visible = false;
+	$Upgrades.visible = false;
+	$ShoppingCart.visible = true;

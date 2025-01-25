@@ -10,10 +10,10 @@ func on_bubbles_update():
 	var bubbles: String;
 	
 	if (size > 0 && BubblesGlobal.bubbles_value[size - 1] != 0):
-		bubbles = str(BubblesGlobal.bubbles_value[size]) + "." + str(BubblesGlobal.bubbles_value[size - 1]) + NOTATION[size];	
+		bubbles = str(BubblesGlobal.bubbles_value[size]) + "." + str(BubblesGlobal.bubbles_value[size - 1]).pad_zeros(3) + NOTATION[size];	
 	else:
 		bubbles = str(BubblesGlobal.bubbles_value[size]) + NOTATION[size];
-	%Label.text = bubbles;
+	$Label.text = bubbles;
 	
 func _on_timer_timeout():
 	if BubblesGlobal.passive != "0":
