@@ -98,7 +98,7 @@ func _on_upgrade_purchased(upgrade_name : String):
 		spawn_a_shop()
 	elif upgrade_name == "Acid factory":
 		spawn_a_factory()
-	elif upgrade_name == "Bubble multiplier":
+	elif upgrade_name == "Bubble x2":
 		upgrade_multiplier()
 	elif upgrade_name == "Random pops":
 		Events.bubble_random_death_chance += Events.bubble_random_death_chance + 0.5
