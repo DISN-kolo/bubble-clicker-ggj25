@@ -98,6 +98,8 @@ func _on_upgrade_purchased(upgrade_name : String):
 		spawn_a_shop()
 	elif upgrade_name == "Acid factory":
 		spawn_a_factory()
+	elif upgrade_name == "Bubble multiplier":
+		upgrade_multiplier()
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1
@@ -131,7 +133,11 @@ func spawn_a_cloud():
 	instance_of_cloud.velocity.x = CLOUD_SPEED * cloud_direction
 	add_child(instance_of_cloud)
 
-
+func upgrade_multiplier():
+	if (BubblesGlobal.multiplier == 1):
+		BubblesGlobal.multiplier += 1;
+	else:
+		BubblesGlobal.multiplier **= 2;
 
 func _on_timer_timeout():
 	spawn_a_cloud()
