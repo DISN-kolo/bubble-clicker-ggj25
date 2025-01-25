@@ -1,6 +1,7 @@
 extends Node
 
 signal bubbles_updated;
+signal upgrade_purchased;
 
 const upgrades = [
 	{
