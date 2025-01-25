@@ -7,8 +7,14 @@ func _ready():
 	
 func on_bubbles_update():
 	var size = BubblesGlobal.bubbles_value.size() - 1;
-	%Label.text = str(BubblesGlobal.bubbles_value[size]) + NOTATION[size];
-
+	var bubbles: String;
+	
+	if (size > 0 && BubblesGlobal.bubbles_value[size - 1] != 0):
+		bubbles = str(BubblesGlobal.bubbles_value[size]) + "." + str(BubblesGlobal.bubbles_value[size - 1]) + NOTATION[size];	
+	else:
+		bubbles = str(BubblesGlobal.bubbles_value[size]) + NOTATION[size];
+	%Label.text = bubbles;
+	
 func _on_timer_timeout():
 	if BubblesGlobal.passive != "0":
 		BubblesGlobal.addBubbles(BubblesGlobal.passive);

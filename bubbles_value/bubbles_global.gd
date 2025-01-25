@@ -8,7 +8,7 @@ const upgrades = [
 		"name": "Tios",
 		"quantity": 1,
 		"img": "single_tio.png",
-		"price": "1",
+		"price": "2",
 	},
 ]
 
@@ -84,7 +84,7 @@ func subtract(num):
 	bubbles_value = result;
 
 func compare(num: String):
-	var numStr = displayBubbles();
+	var numStr = displayBubbles(bubbles_value);
 	var i = 0;
 	
 	num = num.pad_zeros(3);
@@ -103,8 +103,8 @@ func addBubbles(num: String):
 func subtractBubbles(num: String):
 	subtract(arrayBubbles(num));
 
-func displayBubbles():
-	var tmp = bubbles_value.duplicate();
+func displayBubbles(num: Array):
+	var tmp = num.duplicate();
 	var nStr = "";
 	
 	while tmp:
