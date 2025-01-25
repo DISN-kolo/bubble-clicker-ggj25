@@ -53,10 +53,13 @@ func _on_timer_timeout():
 	#if (i >= Events.tio_maximum_bubbles - 1):
 		#return
 	#i += 1
-	bub_instance = bub.instantiate()
-	bub_instance.velocity.y = -20 * rng.randf_range(0.8, 1.2)
-	bub_instance.global_position = self.global_position
-	get_tree().get_root().add_child(bub_instance)
+	Events.global_bubble_index += 1
+	if Events.global_bubble_index == Events.global_bubble_modificator:
+		Events.global_bubble_index = 0
+		bub_instance = bub.instantiate()
+		bub_instance.velocity.y = -20 * rng.randf_range(0.8, 1.2)
+		bub_instance.global_position = self.global_position
+		get_tree().get_root().add_child(bub_instance)
 	r = rng.randf_range(Events.tio_bubbling_time, Events.tio_bubbling_time + 0.5)
 	if in_shop:
 		r /= Events.tio_shop_bubble_time_modificator

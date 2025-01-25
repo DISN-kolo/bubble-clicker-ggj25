@@ -11,6 +11,7 @@ var opacity : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	monitoring = false
 	main_fumes_sprite.self_modulate.a = opacity
 	aux_fumes_sprite.self_modulate.a = opacity
 	main_fumes_sprite.modulate = modulate_color
@@ -34,18 +35,18 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	#print("enter ", body, " from group ", body.get_groups())
 	if body.is_in_group("bubble"):
-		body.die()
-	pass # Replace with function body.
+		if !body.dying:
+			body.die()
 
 func _on_factory_started_fuming():
 	monitoring = true
+	#print("started fuming, monitoring on? ", monitoring)
 	tween_showup = create_tween()
 	tween_showup.tween_property(self, "opacity", 1, 0.5)
-	pass
 
 func _on_factory_stopped_fuming():
 	monitoring = false
 	tween_fade = create_tween()
 	tween_fade.tween_property(self, "opacity", 0, 0.5)
-	pass
