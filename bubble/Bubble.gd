@@ -23,14 +23,17 @@ func _ready():
 func _physics_process(delta):
 	if killable and !dying:
 		if Input.is_action_just_pressed("LMB"):
-			killable = false
-			dying = true
-			$Sprite2D.queue_free()
-			explosion_instance = explosion.instantiate()
-			add_child(explosion_instance)
-			BubblesGlobal.addBubbles(str(i + 1));
+			die()
 	move_and_slide()
 	pass
+	
+func die():
+	killable = false
+	dying = true
+	$Sprite2D.queue_free()
+	explosion_instance = explosion.instantiate()
+	add_child(explosion_instance)
+  BubblesGlobal.addBubbles(str(i + 1));
 
 func _on_timer_timeout():
 	if !dying:
