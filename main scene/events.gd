@@ -13,6 +13,7 @@ var tio_shopping_time : float = 3.5
 var tio_shop_bubble_time_modificator : float = 1.5
 #var tio_maximum_bubbles : int = 10
 var wind_speed : float = 100.0
+var fuming : bool = false
 
 var global_bubble_index : int = 0
 var global_bubble_count : int = 0
