@@ -29,7 +29,7 @@ const upgrades = [
 	{
 		"name": "Bubble multiplier",
 		"quantity": 1,
-		"img": "UpFactory.png",
+		"img": "UpPtsPerBubble.png",
 		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
