@@ -43,40 +43,11 @@ func _on_buy_pressed():
 
 func upgradePrice():
 	var upgrade = BubblesGlobal.upgrades.filter(func (upgrade): return upgrade.name == upgrade_name);
-	if (upgrade[0].price.length() > 0):
-		return addPrice(upgrade_price);
-	else:
-		var i = 0;
-		while i < upgrade[0].prices.size() && upgrade[0].prices[i] != upgrade_price:
-			i += 1;
-		if (i  < upgrade[0].prices.size() - 1):
-			return upgrade[0].prices[i + 1];
-		return "-1";
-
-func addPrice(num : String):
-	var numArr = BubblesGlobal.arrayBubbles(num);
-	var priceArr = BubblesGlobal.arrayBubbles(upgrade_price);
-	var result = [];
-	var carry = 0;
- 
-	while numArr.size() > 0 or priceArr.size() > 0:
-		var sum = 0;
- 
-		if numArr.size() > 0:
-			sum += numArr.pop_front();
- 
-		if priceArr.size() > 0:
-			sum += priceArr.pop_front();
- 
-		sum += carry;
-		carry = 0;
- 
-		result.append(BubblesGlobal.arrayBubbles(str(sum))[0]);
- 
-		if BubblesGlobal.arrayBubbles(str(sum)).size() > 1:
-			carry = BubblesGlobal.arrayBubbles(str(sum))[1];
- 
-	if carry != 0:
-		result.append(carry);
- 
-	return BubblesGlobal.displayBubbles(result);
+	var i = 0;
+	while i < upgrade[0].prices.size() && upgrade[0].prices[i] != upgrade_price:
+		i += 1;
+	if (i  < upgrade[0].prices.size() - 1):
+		return upgrade[0].prices[i + 1];
+	elif (upgrade[0].noLimit):
+		return upgrade_price;
+	return "-1";
