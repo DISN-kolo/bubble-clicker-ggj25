@@ -1,7 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 
-bubble_clicker.pck
-bubble_clicker.sh
-bubble_clicker.x86_64
-export_presets.cfg
+*.pck
+*.sh
+*.x86_64
+*.cfg
