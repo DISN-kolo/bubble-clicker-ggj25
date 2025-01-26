@@ -147,7 +147,7 @@ func upgrade_multiplier():
 	if (BubblesGlobal.multiplier == 1):
 		BubblesGlobal.multiplier += 1;
 	else:
-		BubblesGlobal.multiplier = BubblesGlobal.multiplier**1.5/2 + BubblesGlobal.multiplier;
+		BubblesGlobal.multiplier = BubblesGlobal.multiplier**1.65/2 + BubblesGlobal.multiplier;
 
 func bath_upgrade_or_install():
 	if !bath_installed:
@@ -157,8 +157,8 @@ func bath_upgrade_or_install():
 		add_child(instance_of_bath)
 		bath_installed = true
 	else:
-		Events.bath_bubbles_amt *= 1.3
-		Events.bath_interval /= 2
+		Events.bath_bubbles_amt *= 1.2
+		Events.bath_interval /= 1.3
 		if Events.bath_interval < 0.2:
 			Events.bath_interval = 0.2
 

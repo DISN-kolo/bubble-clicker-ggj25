@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dv81m5j3bgdt8"]
 
-[ext_resource type="Script" path="res://AutoBath.gd" id="1_pluxl"]
+[ext_resource type="Script" path="res://shop/AutoBath.gd" id="1_rh1ip"]
 [ext_resource type="Texture2D" uid="uid://bjpg010dlvcuv" path="res://resources/AutoBath.png" id="2_hd5hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox3vv"]
@@ -41,7 +41,7 @@ animations = [{
 
 [node name="AutoBath" type="Node2D"]
 z_index = -1
-script = ExtResource("1_pluxl")
+script = ExtResource("1_rh1ip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dk03k")
