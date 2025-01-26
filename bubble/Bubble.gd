@@ -6,9 +6,16 @@ var i : int = 0
 var killable : bool = false
 var dying : bool = false
 @onready var texture_pool : Array = [
-	load("res://resources/BubbleSmall.png"),
-	load("res://resources/BubbleMed.png"),
-	load("res://resources/BubbleBig.png")]
+	preload("res://resources/BubbleSmall.png"),
+	preload("res://resources/BubbleMed.png"),
+	preload("res://resources/BubbleBig.png")]
+
+@onready var g_texture_pool : Array = [
+	preload("res://resources/GBubbleSmall.png"),
+	preload("res://resources/GBubbleMid.png"),
+	preload("res://resources/GBubbleBig.png")]
+
+var is_golden : bool = false
 
 @onready var explosion = preload("res://bubble/explosion.tscn")
 var explosion_instance
@@ -21,9 +28,14 @@ var explosion_instance
 var die_roll : float = 100
 
 func _ready():
+	if rng.randf_range(0, 100) < Events.golden_bubble_probability * Events.global_bubble_modificator:
+		is_golden = true
 	Events.global_bubble_count += 1;
 	r = rng.randf_range(Events.bubble_growth_time, Events.bubble_growth_time + 2)
-	b_sprite.texture = texture_pool[i]
+	if is_golden:
+		b_sprite.texture = g_texture_pool[i]
+	else:
+		b_sprite.texture = texture_pool[i]
 	b_timer.wait_time = r
 	b_timer.start()
 
@@ -35,6 +47,8 @@ func _physics_process(delta):
 
 func die():
 	audio_player.pitch_scale = rng.randf_range(0.98, 1.02)
+	if is_golden:
+		audio_player.pitch_scale *= 2
 	audio_player.play()
 	Events.global_bubble_count -= 1;
 	killable = false
@@ -42,7 +56,10 @@ func die():
 	b_sprite.queue_free()
 	explosion_instance = explosion.instantiate()
 	add_child(explosion_instance)
-	BubblesGlobal.addBubbles(str((i + 1) * Events.global_bubble_modificator * BubblesGlobal.multiplier));
+	if is_golden:
+		BubblesGlobal.addBubbles(str((i + 1) * Events.global_bubble_modificator * BubblesGlobal.multiplier * Events.golden_bubble_multiplier));
+	else:
+		BubblesGlobal.addBubbles(str((i + 1) * Events.global_bubble_modificator * BubblesGlobal.multiplier));
 
 func _on_timer_timeout():
 	if !dying:
@@ -55,7 +72,10 @@ func _on_timer_timeout():
 			return
 		i += 1
 		r = rng.randf_range(2.0, 3.0)
-		b_sprite.texture = texture_pool[i]
+		if is_golden:
+			b_sprite.texture = g_texture_pool[i]
+		else:
+			b_sprite.texture = texture_pool[i]
 		b_timer.wait_time = r
 		b_timer.start()
 
