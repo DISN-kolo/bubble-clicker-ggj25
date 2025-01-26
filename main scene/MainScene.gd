@@ -63,13 +63,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("shiftescape"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("cheat"):
-		Events.tio_spawn_time /= 2
-		if (Events.tio_spawn_time <= 0.5):
-			Events.tio_spawn_time = 0.5
-		Events.bubble_growth_time /= 2
+		Events.golden_bubble_probability += 1
+		#Events.tio_spawn_time /= 2
+		#if (Events.tio_spawn_time <= 0.5):
+			#Events.tio_spawn_time = 0.5
+		Events.bubble_growth_time /= 1.1
 		if (Events.bubble_growth_time <= 0.1):
 			Events.bubble_growth_time = 0.1
-		Events.tio_shopping_time += 0.5
+		Events.tio_shopping_time += 0.4
 		if (Events.tio_shopping_time > 3):
 			Events.tio_shopping_time = 3
 		Events.tio_bubbling_time /= 2
@@ -94,7 +95,7 @@ func _on_killzone_bubble_top_body_entered(body):
 	body.queue_free()
 
 func _on_upgrade_purchased(upgrade_name : String):
-	if upgrade_name == "Tios":
+	if upgrade_name == "Bubble guy":
 		spawn_a_tio()
 	elif upgrade_name == "Fun shop":
 		spawn_a_shop()
@@ -110,6 +111,8 @@ func _on_upgrade_purchased(upgrade_name : String):
 		Events.tio_bubbling_time /= 1.2
 		if (Events.tio_bubbling_time <= 0.5):
 			Events.tio_bubbling_time = 0.5
+	elif upgrade_name == "Golden bubble":
+		Events.golden_bubble_probability += 0.5
 
 func spawn_a_tio():
 	tio_direction = rng.randi_range(0, 1) * 2 - 1

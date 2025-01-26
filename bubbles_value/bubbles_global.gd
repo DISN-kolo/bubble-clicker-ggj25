@@ -11,11 +11,7 @@ const upgrades = [
 		"quantity": 1,
 		"img": "UpTio.png",
 		"price" : "",
-		"prices": ["1", "2", "4", "8", "16", "32", "64", "128", "256", "512", "1024", \
-		"2048", "4096", \
-"8192", \
-"24576", \
-"40960"]
+		"prices": ["1", "2", "4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096", "8192", "24576", "40960"],
 		"noLimit": true
 	},
 	{
@@ -23,36 +19,49 @@ const upgrades = [
 		"quantity": 0,
 		"img": "UpShoppy.png",
 		"prices": ["50", "500", "50000", "500000", "50000000", "5000000000"],
+		"noLimit": false
 	},
 	{
 		"name": "Acid factory",
 		"quantity": 0,
 		"img": "UpFactory.png",
 		"prices": ["1000", "10000", "100000", "10000000"],
+		"noLimit": false
 	},
 	{
 		"name": "Bubble x2",
 		"quantity": 1,
 		"img": "UpBubblePtsALTERNATIVE.png",
 		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
+		"noLimit": false
 	},
 	{
 		"name": "Reduce wait",
 		"quantity": 0,
 		"img": "BubbleTimerReduce.png",
 		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
+		"noLimit": false
 	},
 	{
 		"name": "Random pops",
 		"quantity": 0,
 		"img": "UpRandomPop.png",
 		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
+		"noLimit": false
 	},
-		{
+	{
 		"name": "Auto bath",
 		"quantity": 0,
 		"img": "UpBath.png",
 		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
+		"noLimit": false
+	},
+	{
+		"name": "Golden bubble",
+		"quantity": 0,
+		"img": "GBubbleBig.png",
+		"prices": ["100", "1000", "10000", "1000000", "100000000"],
+		"noLimit": false
 	},
 ]
 

@@ -23,3 +23,6 @@ var bubble_random_death_chance : float = 0
 
 var bath_interval : float = 10.0
 var bath_bubbles_amt : int = 10
+
+var golden_bubble_probability : float = 0.01
+var golden_bubble_multiplier : float = 100
