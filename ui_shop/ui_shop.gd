@@ -9,10 +9,7 @@ func _ready():
 	for upgrade in BubblesGlobal.upgrades:
 		var control = UPGRADE.instantiate();
 		control.upgrade_name = upgrade.name;
-		if (upgrade.price.length() > 0):
-			control.upgrade_price = upgrade.price;
-		else:
-			control.upgrade_price = upgrade.prices[0];
+		control.upgrade_price = upgrade.prices[0];
 		control.upgrade_quantity = upgrade.quantity;
 		if (ResourceLoader.exists("res://resources/" + upgrade.img)):
 			control.upgrade_img = ResourceLoader.load("res://resources/" + upgrade.img);

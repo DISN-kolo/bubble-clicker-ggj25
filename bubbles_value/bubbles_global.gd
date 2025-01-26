@@ -7,51 +7,46 @@ const NOTATION : Array = ['','K','M','B','T','Qa','Qi','Sx','Sp','Oc']
 
 const upgrades = [
 	{
-		"name": "Tios",
+		"name": "Bubble guy",
 		"quantity": 1,
 		"img": "UpTio.png",
-		"price": "1",
+		"prices": ["1"],
+		"noLimit": true
 	},
 	{
 		"name": "Fun shop",
 		"quantity": 0,
 		"img": "UpShoppy.png",
-		"price": "",
 		"prices": ["50", "500", "50000", "500000", "50000000", "5000000000"],
 	},
 	{
 		"name": "Acid factory",
 		"quantity": 0,
 		"img": "UpFactory.png",
-		"price": "",
 		"prices": ["1000", "10000", "100000", "10000000"],
 	},
 	{
 		"name": "Bubble x2",
 		"quantity": 1,
 		"img": "UpBubblePtsALTERNATIVE.png",
-		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 	{
 		"name": "Reduce wait",
 		"quantity": 0,
 		"img": "BubbleTimerReduce.png",
-		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 	{
 		"name": "Random pops",
 		"quantity": 0,
 		"img": "UpRandomPop.png",
-		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 		{
 		"name": "Auto bath",
 		"quantity": 0,
 		"img": "UpBath.png",
-		"price": "",
 		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
 	},
 ]
