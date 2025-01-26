@@ -28,6 +28,7 @@ func _ready():
 	bubble_timer.wait_time = r
 	bubble_timer.start()
 	sprite.flip_h = sprite_flip
+	velocity *= rng.randf_range(0.96, 1.04)
 
 func _physics_process(delta):
 	# Add the gravity.

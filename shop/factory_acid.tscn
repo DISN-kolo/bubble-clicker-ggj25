@@ -11,6 +11,7 @@ size = Vector2(32, 32)
 font_size = 7
 
 [node name="FactoryAcid" type="Node2D"]
+z_as_relative = false
 script = ExtResource("1_smpeu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

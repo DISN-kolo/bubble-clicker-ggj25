@@ -8,6 +8,7 @@ size = Vector2(16, 17)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["cloud"]]
 z_index = -1
+z_as_relative = false
 collision_mask = 0
 script = ExtResource("1_wcugm")
 
