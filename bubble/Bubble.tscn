@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2vpg"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["bubble"]]
+z_index = 11
 collision_layer = 6
 collision_mask = 0
 script = ExtResource("1_46c87")
