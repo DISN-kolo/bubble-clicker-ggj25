@@ -21,5 +21,5 @@ var global_bubble_modificator : int = 1
 
 var bubble_random_death_chance : float = 0
 
-var bath_interval : float = 30.0
+var bath_interval : float = 10.0
 var bath_bubbles_amt : int = 10

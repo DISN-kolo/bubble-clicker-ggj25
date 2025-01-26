@@ -10,7 +10,12 @@ const upgrades = [
 		"name": "Bubble guy",
 		"quantity": 1,
 		"img": "UpTio.png",
-		"prices": ["1"],
+		"price" : "",
+		"prices": ["1", "2", "4", "8", "16", "32", "64", "128", "256", "512", "1024", \
+		"2048", "4096", \
+"8192", \
+"24576", \
+"40960"]
 		"noLimit": true
 	},
 	{
@@ -29,25 +34,25 @@ const upgrades = [
 		"name": "Bubble x2",
 		"quantity": 1,
 		"img": "UpBubblePtsALTERNATIVE.png",
-		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
 	},
 	{
 		"name": "Reduce wait",
 		"quantity": 0,
 		"img": "BubbleTimerReduce.png",
-		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
 	},
 	{
 		"name": "Random pops",
 		"quantity": 0,
 		"img": "UpRandomPop.png",
-		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
 	},
 		{
 		"name": "Auto bath",
 		"quantity": 0,
 		"img": "UpBath.png",
-		"prices": ["10", "100", "500", "2500", "50000", "1000000"],
+		"prices": ["10", "100", "500", "2500", "10000", "50000", "1000000"],
 	},
 ]
 
